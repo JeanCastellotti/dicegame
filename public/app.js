@@ -11,7 +11,7 @@ let playersScores = [0, 0];
 let currentScore = 0;
 let currentPlayer = 0;
 let playing = true;
-let scoreToWin = 100;
+const scoreToWin = 100;
 
 // Click on roll button
 btnRoll.addEventListener('click', roll);
