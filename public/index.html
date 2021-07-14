@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Jeu de dé en ligne. Défiez vos amis !">
+        <title>Jeu de dé</title>
+    </head>
+    <body class="h-screen bg-gray-200 flex font-lato text-gray-800">
+        <main class="m-auto bg-white shadow-sm flex relative">
+            <section class="px-36 py-28 space-y-24 bg-gray-50">
+                <div class="space-y-2">
+                    <div class="text-3xl uppercase text-gray-600 text-center" id="player-0">Joueur 1</div>
+                    <div class="text-center text-8xl font-thin text-red-400" id="score-0">0</div>
+                </div>
+                <div class="bg-red-500 text-white py-4 px-10 text-center space-y-2">
+                    <div class="uppercase text-gray-800">Score</div>
+                    <div class="uppercase font-bold tracking-wider text-xl" id="current-0">0</div>
+                </div>
+            </section>
+            <section class="px-36 py-28 space-y-24">
+                <div class="space-y-2">
+                    <div class="text-3xl font-light uppercase text-gray-600 text-center" id="player-1">Joueur 2</div>
+                    <div class="text-center text-8xl font-thin text-red-400" id="score-1">0</div>
+                </div>
+                <div class="bg-red-500 text-white py-4 px-10 text-center space-y-2">
+                    <div class="uppercase text-gray-800">Score</div>
+                    <div class="uppercase font-bold tracking-wider text-xl" id="current-1">0</div>
+                </div>
+            </section>
+
+            <img 
+                src="images/dice-1.png" 
+                alt="Image d'un dé" 
+                class="hidden absolute top-36 left-1/2 transform -translate-x-1/2 h-20 w-auto"
+                id="dice"
+            >
+
+            <button class="absolute py-2 px-6 uppercase text-sm tracking-wider top-10 left-1/2 transform -translate-x-1/2 flex items-center space-x-2" id="btn-new">
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    class="h-6 w-6" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor">
+                    <path 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        stroke-width="2" 
+                        d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" 
+                    />
+                </svg>
+                <span>Nouvelle partie</span>
+            </button>
+
+            <button class="absolute rounded py-2 px-6 uppercase text-sm tracking-wider bottom-40 left-1/2 transform -translate-x-1/2 flex items-center space-x-2" id="btn-roll">
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    class="h-6 w-6" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor">
+                    <path 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        stroke-width="2" 
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" 
+                    />
+                </svg>
+                <span>Lancer le dé</span>
+            </button>
+
+            <button class="absolute rounded py-2 px-6 uppercase text-sm tracking-wider bottom-28 left-1/2 transform -translate-x-1/2 flex items-center space-x-2" id="btn-hold">
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    class="h-6 w-6" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                
+                    stroke="currentColor">
+                    <path 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        stroke-width="2" 
+                        d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" 
+                    />
+                </svg>
+                <span>Sauvegarder</span>
+            </button>
+        </main>
+    </body>
+</html>
