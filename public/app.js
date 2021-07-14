@@ -11,6 +11,7 @@ let playersScores = [0, 0];
 let currentScore = 0;
 let currentPlayer = 0;
 let playing = true;
+let scoreToWin = 100;
 
 // Click on roll button
 btnRoll.addEventListener('click', roll);
@@ -48,7 +49,7 @@ function hold() {
     playersScores[currentPlayer] += currentScore;
     document.getElementById(`score-${currentPlayer}`).textContent = playersScores[currentPlayer];
 
-    if (playersScores[currentPlayer] >= 10) {
+    if (playersScores[currentPlayer] >= scoreToWin) {
         playing = false;
         dice.classList.add('hidden');
         document.getElementById(`player-${currentPlayer}`).textContent = "Gagné";
@@ -74,6 +75,8 @@ function newGame() {
     player2.classList.add('font-light');
     player2.classList.remove('text-green-400');
     player2.closest('section').classList.remove('bg-gray-50');
+
+    dice.classList.add('hidden');
 
     playersScores = [0, 0];
     currentScore = 0;
