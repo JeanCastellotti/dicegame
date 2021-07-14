@@ -76,6 +76,8 @@ function newGame() {
     player2.classList.remove('text-green-400');
     player2.closest('section').classList.remove('bg-gray-50');
 
+    document.getElementById(`current-${currentPlayer}`).textContent = 0;
+
     dice.classList.add('hidden');
 
     playersScores = [0, 0];
