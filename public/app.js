@@ -13,12 +13,30 @@ let currentPlayer = 0;
 
 // Roll the dice
 function roll() {
+    const diceNumber = Math.trunc(Math.random() * 6) + 1;
+    dice.classList.remove('hidden');
+    dice.src = `images/dice-${diceNumber}.png`;
 
+    if (diceNumber === 1) {
+        nextPlayer();
+
+        return;
+    }
+
+    currentScore += diceNumber;
+    document.getElementById(`current-${currentPlayer}`).textContent = currentScore;
 }
 
 // Hold current score
 function hold() {
 
+    if (!currentScore) return;
+
+    document.getElementById(`current-${currentPlayer}`).textContent = 0;
+    playersScores[currentPlayer] += currentScore;       
+    document.getElementById(`score-${currentPlayer}`).textContent = playersScores[currentPlayer];
+
+    nextPlayer();
 }
 
 // Start a new game
@@ -28,7 +46,15 @@ function newGame() {
 
 // Switch to next player
 function nextPlayer() {
+    document.getElementById(`current-${currentPlayer}`).textContent = 0;
+    player1.classList.toggle('font-light');
+    player1.closest('section').classList.toggle('bg-gray-50');
+    player2.classList.toggle('font-light');
+    player2.closest('section').classList.toggle('bg-gray-50');
+    dice.classList.add('hidden');
 
+    currentPlayer = 1 - currentPlayer; 
+    currentScore = 0;
 }
 
 btnRoll.addEventListener('click', roll);
