@@ -10,9 +10,22 @@ const btnHold = document.getElementById('btn-hold');
 const playersScores = [0, 0];
 let currentScore = 0;
 let currentPlayer = 0;
+let playing = true;
+
+// Click on roll button
+btnRoll.addEventListener('click', roll);
+
+// Click on hold button
+btnHold.addEventListener('click', hold);
+
+// Click on new game button
+btnHold.addEventListener('click', newGame);
 
 // Roll the dice
 function roll() {
+
+    if (!playing) return;
+
     const diceNumber = Math.trunc(Math.random() * 6) + 1;
     dice.classList.remove('hidden');
     dice.src = `images/dice-${diceNumber}.png`;
@@ -24,17 +37,36 @@ function roll() {
     }
 
     currentScore += diceNumber;
-    document.getElementById(`current-${currentPlayer}`).textContent = currentScore;
+
+    document
+        .getElementById(`current-${currentPlayer}`)
+        .textContent = currentScore;
 }
 
 // Hold current score
 function hold() {
 
-    if (!currentScore) return;
+    if (!playing || currentScore === 0) return;
 
-    document.getElementById(`current-${currentPlayer}`).textContent = 0;
-    playersScores[currentPlayer] += currentScore;       
-    document.getElementById(`score-${currentPlayer}`).textContent = playersScores[currentPlayer];
+    playersScores[currentPlayer] += currentScore;
+
+    document
+        .getElementById(`score-${currentPlayer}`)
+        .textContent = playersScores[currentPlayer];
+
+    if (playersScores[currentPlayer] >= 10) {
+        playing = false;
+        dice.classList.add('hidden');
+
+        document
+            .getElementById(`player-${currentPlayer}`)
+            .textContent = "Gagné";
+        document
+            .getElementById(`player-${currentPlayer}`)
+            .classList.add('text-green-400', 'font-bold');
+
+        return;
+    }
 
     nextPlayer();
 }
@@ -56,7 +88,3 @@ function nextPlayer() {
     currentPlayer = 1 - currentPlayer; 
     currentScore = 0;
 }
-
-btnRoll.addEventListener('click', roll);
-btnHold.addEventListener('click', hold);
-btnHold.addEventListener('click', newGame);
