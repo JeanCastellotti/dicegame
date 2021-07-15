@@ -11,7 +11,7 @@ let playersScores = [0, 0];
 let currentScore = 0;
 let currentPlayer = 0;
 let playing = true;
-const scoreToWin = 100;
+const scoreToWin = 50;
 
 // Click on roll button
 btnRoll.addEventListener('click', roll);
@@ -52,7 +52,8 @@ function hold() {
     if (playersScores[currentPlayer] >= scoreToWin) {
         playing = false;
         dice.classList.add('hidden');
-        document.getElementById(`player-${currentPlayer}`).textContent = "Gagné";
+        document.getElementById(`player-${currentPlayer}`).querySelector('span').textContent = "Gagné";
+        document.getElementById(`player-${currentPlayer}`).querySelector('div').classList.add('hidden');
         document.getElementById(`player-${currentPlayer}`).classList.add('text-green-400');
         document.getElementById(`current-${currentPlayer}`).textContent = 0;
 
@@ -67,11 +68,13 @@ function newGame() {
     playerScore1.textContent = 0;
     playerScore2.textContent = 0;
 
-    player1.textContent = "Joueur 1";
-    player2.textContent = "Joueur 2";
-
+    player1.querySelector('span').textContent = "Joueur 1";    
+    player1.querySelector('div').classList.remove('hidden');
     player1.classList.remove('font-light', 'text-green-400');
     player1.closest('section').classList.add('bg-gray-50');
+    
+    player2.querySelector('span').textContent = "Joueur 2";
+    player2.querySelector('div').classList.add('hidden');
     player2.classList.add('font-light');
     player2.classList.remove('text-green-400');
     player2.closest('section').classList.remove('bg-gray-50');
@@ -89,10 +92,15 @@ function newGame() {
 // Switch to next player
 function nextPlayer() {
     document.getElementById(`current-${currentPlayer}`).textContent = 0;
+
     player1.classList.toggle('font-light');
     player1.closest('section').classList.toggle('bg-gray-50');
+    player1.querySelector('div').classList.toggle('hidden');
+
     player2.classList.toggle('font-light');
     player2.closest('section').classList.toggle('bg-gray-50');
+    player2.querySelector('div').classList.toggle('hidden');
+
     dice.classList.add('hidden');
 
     currentPlayer = 1 - currentPlayer; 
