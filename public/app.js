@@ -1,3 +1,4 @@
+// DOM elements
 const player1 = document.getElementById('player-0');
 const player2 = document.getElementById('player-1');
 const playerScore1 = document.getElementById('score-0');
