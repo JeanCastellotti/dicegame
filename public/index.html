@@ -15,7 +15,10 @@
             <!-- Player 1 -->
             <section class="px-36 py-28 space-y-24 bg-gray-50">
                 <div class="space-y-2">
-                    <div class="text-3xl uppercase text-gray-600 text-center w-48" id="player-0">Joueur 1</div>
+                    <div class="text-3xl uppercase text-gray-600 text-center w-48 relative" id="player-0">
+                        <span>Joueur 1</span> 
+                        <div class="bg-red-400 h-3 w-3 rounded-full absolute left-full top-1/2 transform -translate-y-1/2"></div>
+                    </div>
                     <div class="text-center text-8xl font-thin text-red-400" id="score-0">0</div>
                 </div>
                 <div class="bg-red-500 text-white py-4 px-10 text-center space-y-2">
@@ -27,7 +30,10 @@
             <!-- Player 2 -->
             <section class="px-36 py-28 space-y-24">
                 <div class="space-y-2">
-                    <div class="text-3xl font-light uppercase text-gray-600 text-center w-48" id="player-1">Joueur 2</div>
+                    <div class="text-3xl font-light uppercase text-gray-600 text-center w-48 relative" id="player-1">
+                        <span>Joueur 2</span> 
+                        <div class="hidden bg-red-400 h-3 w-3 rounded-full absolute left-full top-1/2 transform -translate-y-1/2"></div>
+                    </div>
                     <div class="text-center text-8xl font-thin text-red-400" id="score-1">0</div>
                 </div>
                 <div class="bg-red-500 text-white py-4 px-10 text-center space-y-2">
