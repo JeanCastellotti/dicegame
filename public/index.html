@@ -10,10 +10,10 @@
         <link rel="stylesheet" href="tailwind.css">
         <title>Jeu de dés</title>
     </head>
-    <body class="h-screen bg-gray-200 flex font-lato text-gray-800">
-        <main class="m-auto bg-white shadow-sm flex relative">
+    <body class="min-h-screen bg-gray-200 flex font-lato text-gray-800 p-6">
+        <main class="m-auto bg-white shadow-sm grid lg:grid-cols-2 relative max-w-screen-lg w-full">
             <!-- Player 1 -->
-            <section class="px-36 py-28 space-y-24 bg-gray-50">
+            <section class="py-16 lg:py-28 space-y-24 bg-gray-50 flex flex-col items-center">
                 <div class="space-y-2">
                     <div class="text-3xl uppercase text-gray-600 text-center w-48 relative" id="player-0">
                         <span>Joueur 1</span> 
@@ -28,7 +28,7 @@
             </section>
 
             <!-- Player 2 -->
-            <section class="px-36 py-28 space-y-24">
+            <section class="py-16 lg:py-28 space-y-24 flex flex-col items-center">
                 <div class="space-y-2">
                     <div class="text-3xl font-light uppercase text-gray-600 text-center w-48 relative" id="player-1">
                         <span>Joueur 2</span> 
@@ -46,12 +46,12 @@
             <img 
                 src="images/dice-1.png" 
                 alt="Image d'un dé" 
-                class="hidden absolute top-36 left-1/2 transform -translate-x-1/2 h-20 w-auto"
+                class="hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:translate-y-0 lg:top-36 h-20 w-auto"
                 id="dice"
             >
 
             <!-- New Game Button -->
-            <button class="absolute py-2 px-6 uppercase text-sm tracking-wider top-10 left-1/2 transform -translate-x-1/2 flex items-center space-x-2" id="btn-new">
+            <button class="absolute uppercase text-sm tracking-wider top-5 lg:top-10 left-1/2 transform -translate-x-1/2 flex items-center space-x-2" id="btn-new">
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     class="h-6 w-6 text-red-500" 
@@ -69,7 +69,7 @@
             </button>
 
             <!-- Roll Dice Button -->
-            <button class="absolute rounded py-2 px-6 uppercase text-sm tracking-wider bottom-40 left-1/2 transform -translate-x-1/2 flex items-center space-x-2" id="btn-roll">
+            <button class="absolute uppercase text-xs sm:text-sm tracking-wider left-14 sm:left-1/4 top-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 lg:translate-y-0 lg:top-auto lg:bottom-40 flex flex-col sm:flex-row items-center sm:space-x-2" id="btn-roll">
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     class="h-6 w-6 text-red-500" 
@@ -87,7 +87,7 @@
             </button>
 
             <!-- Hold button -->
-            <button class="absolute rounded py-2 px-6 uppercase text-sm tracking-wider bottom-28 left-1/2 transform -translate-x-1/2 flex items-center space-x-2" id="btn-hold">
+            <button class="absolute uppercase text-xs sm:text-sm tracking-wider right-14 sm:right-1/4 top-1/2 lg:right-1/2 transform translate-x-1/2 -translate-y-1/2 lg:translate-y-0 lg:top-auto lg:bottom-28 flex flex-col sm:flex-row items-center sm:space-x-2" id="btn-hold">
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     class="h-6 w-6 text-red-500" 
@@ -102,7 +102,7 @@
                         d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" 
                     />
                 </svg>
-                <span>Sauvegarder</span>
+                <span >Sauvegarder</span>
             </button>
         </main>
         <script src="app.js"></script>
